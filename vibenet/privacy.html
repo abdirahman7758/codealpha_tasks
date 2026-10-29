@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for VibeNet. Learn how your data is collected, stored, and protected.">
+  <title>Privacy Policy | VibeNet</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .legal-page {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+      flex: 1;
+    }
+    .legal-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .legal-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .legal-meta {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-section {
+      margin-bottom: 2rem;
+    }
+    .legal-section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .legal-section p {
+      font-size: 0.9375rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    .legal-section ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .legal-section li {
+      font-size: 0.9375rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+      margin-bottom: 0.35rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="header-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" aria-label="VibeNet Home">
+        <svg class="brand-logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#2563EB"/>
+          <path d="M7 9L16 23L25 9" stroke="#FFFFFF" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="7" cy="9" r="2" fill="#FFFFFF"/>
+          <circle cx="25" cy="9" r="2" fill="#FFFFFF"/>
+          <circle cx="16" cy="23" r="2.5" fill="#FFFFFF"/>
+          <circle cx="16" cy="15" r="2.25" fill="#FFFFFF"/>
+          <path d="M12 11.5C13.2 10.5 14.5 10 16 10C17.5 10 18.8 10.5 20 11.5" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" opacity="0.9"/>
+          <path d="M9.5 8C11.5 6.5 13.6 5.8 16 5.8C18.4 5.8 20.5 6.5 22.5 8" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <span class="brand-text">VibeNet</span>
+        <span class="brand-badge">Policy</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn-secondary" style="text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Feed
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legal Content -->
+  <main class="legal-page">
+    <article class="legal-card">
+      <h1 class="legal-title">Privacy Policy</h1>
+      <div class="legal-meta">Effective Date: October 18, 2026 | Version 1.0</div>
+
+      <section class="legal-section">
+        <h2>1. Overview</h2>
+        <p>This Privacy Policy explains how VibeNet ("we", "us", or "our") collects, uses, discloses, and protects your information when you visit or use our social platform and associated services.</p>
+        <p>We are committed to clear and direct privacy practices. We do not sell your personal data to third parties, nor do we run covert behavioral ad-tracking networks.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>2. Information We Collect</h2>
+        <p>We collect information that you directly provide when using VibeNet:</p>
+        <ul>
+          <li><strong>Account Information:</strong> When registering, you provide an email address, password hash (processed via Firebase Authentication), and a chosen display name.</li>
+          <li><strong>Profile Information:</strong> Optional profile information you select to publish, such as a short biography or handle.</li>
+          <li><strong>Content and Social Interactions:</strong> The text posts you publish, comments you submit, posts you like, and the accounts you follow.</li>
+          <li><strong>Technical Metadata:</strong> System timestamps, network request headers, and client identifiers necessary to maintain connection security and real-time synchronization.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the collected information solely for the operation and security of the platform, including:</p>
+        <ul>
+          <li>Authenticating your identity and preventing unauthorized account access.</li>
+          <li>Transmitting and displaying your posts, comments, likes, and follower relationships in real time.</li>
+          <li>Enforcing our platform rules, verifying post ownership for deletion requests, and preventing spam.</li>
+          <li>Maintaining database integrity and diagnosing technical issues.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>4. Data Storage and Backend Infrastructure</h2>
+        <p>VibeNet utilizes Google Firebase (Backend as a Service), including Firebase Authentication and Cloud Firestore:</p>
+        <ul>
+          <li><strong>Authentication:</strong> Passwords are never stored in plaintext. Passwords are salted and hashed by Google Firebase security infrastructure.</li>
+          <li><strong>Firestore Database:</strong> Your user profile, posts, comments, and like records are stored in encrypted Cloud Firestore clusters managed with strict security rules.</li>
+          <li><strong>Data Transmission:</strong> All data exchanged between your browser and VibeNet is encrypted in transit using industry-standard TLS protocols.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>5. Your Rights and Control</h2>
+        <p>You retain direct control over your content and account:</p>
+        <ul>
+          <li><strong>Editing Profile:</strong> You may update your display name and biography at any time from your profile dashboard.</li>
+          <li><strong>Content Deletion:</strong> You have the permanent right to delete any post you have authored. Deleting a post removes it from the public feed.</li>
+          <li><strong>Account Erasure:</strong> You can submit a deletion request to purge your account records by contacting our administration.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>6. Cookies and Local Storage</h2>
+        <p>VibeNet uses local storage and standard session tokens strictly for authentication persistence and interface state. We do not employ third-party cross-site marketing cookies.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>7. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy as our services evolve. Any updates will be reflected directly on this page with an updated effective date.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>8. Contact Information</h2>
+        <p>For questions or requests concerning your privacy, contact the VibeNet engineering and administrative team at: <strong>privacy@vibenet.network</strong>.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div>
+        <span>&copy; 2026 VibeNet. Connect. Share. Vibe. All rights reserved.</span>
+      </div>
+      <nav class="footer-links">
+        <a href="privacy.html" style="color: var(--primary); font-weight: 600;">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="index.html">Main Feed</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
+

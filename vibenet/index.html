@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="VibeNet - Connect. Share. Vibe. A modern, real-time social platform built with clean design and cloud persistence."
+    />
+    <title>VibeNet | Connect. Share. Vibe.</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top Sticky Navigation Bar -->
+    <header class="header-navbar">
+      <div class="nav-container">
+        <!-- Brand Logo & Name -->
+        <a
+          href="#"
+          class="nav-brand"
+          id="navBrandLogo"
+          aria-label="VibeNet Home"
+        >
+          <!-- SVG Code Logo for VibeNet -->
+          <svg
+            class="brand-logo-svg"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect width="32" height="32" rx="8" fill="#2563EB" />
+            <path
+              d="M7 9L16 23L25 9"
+              stroke="#FFFFFF"
+              stroke-width="2.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle cx="7" cy="9" r="2" fill="#FFFFFF" />
+            <circle cx="25" cy="9" r="2" fill="#FFFFFF" />
+            <circle cx="16" cy="23" r="2.5" fill="#FFFFFF" />
+            <circle cx="16" cy="15" r="2.25" fill="#FFFFFF" />
+            <path
+              d="M12 11.5C13.2 10.5 14.5 10 16 10C17.5 10 18.8 10.5 20 11.5"
+              stroke="#FFFFFF"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              opacity="0.9"
+            />
+            <path
+              d="M9.5 8C11.5 6.5 13.6 5.8 16 5.8C18.4 5.8 20.5 6.5 22.5 8"
+              stroke="#FFFFFF"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              opacity="0.6"
+            />
+          </svg>
+          <span class="brand-text">VibeNet</span>
+          <span class="brand-badge">Network</span>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="nav-search">
+          <svg
+            class="nav-search-icon"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="text"
+            id="globalSearchInput"
+            placeholder="Search posts and users..."
+            aria-label="Search posts and users"
+          />
+        </div>
+
+        <!-- Header Actions & User Auth Menu -->
+        <div class="nav-actions">
+          <!-- Logged Out State -->
+          <div id="unauthNavActions" style="display: flex; gap: 0.5rem">
+            <button class="btn-secondary" id="openSignInBtn" type="button">
+              Log In
+            </button>
+            <button class="btn-primary" id="openSignUpBtn" type="button">
+              Create Account
+            </button>
+          </div>
+
+          <!-- Logged In State -->
+          <div
+            id="authNavActions"
+            class="user-menu-wrapper"
+            style="display: none"
+          >
+            <button
+              class="user-badge-btn"
+              id="userMenuToggleBtn"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <div class="avatar avatar-sm" id="headerUserAvatar">VN</div>
+              <span
+                id="headerUserName"
+                style="font-weight: 600; font-size: 0.875rem"
+                >User</span
+              >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div class="user-dropdown" id="userDropdownMenu">
+              <div class="dropdown-header">
+                <div class="dropdown-name" id="dropdownUserName">
+                  Current User
+                </div>
+                <div class="dropdown-email" id="dropdownUserEmail">
+                  user@vibenet.local
+                </div>
+              </div>
+              <button
+                class="dropdown-item"
+                id="navViewProfileBtn"
+                type="button"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                My Profile
+              </button>
+              <button
+                class="dropdown-item"
+                id="navEditProfileBtn"
+                type="button"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20h9"></path>
+                  <path
+                    d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                  ></path>
+                </svg>
+                Edit Profile
+              </button>
+              <div class="dropdown-divider"></div>
+              <button
+                class="dropdown-item"
+                id="logoutBtn"
+                type="button"
+                style="color: var(--danger)"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Live/Local Mode Notice Banner (Discreet & Professional) -->
+    <div id="systemBanner" class="system-banner" style="display: none">
+      <span id="systemBannerText"
+        >Running in Local BaaS Mode. To enable Cloud Firestore and Firebase
+        Auth, configure your project keys in
+        <code>firebase-config.js</code>.</span
+      >
+    </div>
+
+    <!-- Main Three-Column Layout Container -->
+    <main class="app-container">
+      <!-- Left Navigation Sidebar -->
+      <aside class="sidebar-nav">
+        <nav class="nav-card">
+          <ul class="nav-menu-list">
+            <li class="nav-menu-item active" id="navHomeItem">
+              <button type="button" id="sidebarFeedBtn">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Main Feed
+              </button>
+            </li>
+            <li class="nav-menu-item" id="navProfileItem">
+              <button type="button" id="sidebarProfileBtn">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Profile
+              </button>
+            </li>
+            <li class="nav-menu-item">
+              <a
+                href="privacy.html"
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  padding: 0.625rem 0.75rem;
+                  color: var(--text-secondary);
+                  text-decoration: none;
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Privacy Policy
+              </a>
+            </li>
+            <li class="nav-menu-item">
+              <a
+                href="terms.html"
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  padding: 0.625rem 0.75rem;
+                  color: var(--text-secondary);
+                  text-decoration: none;
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Terms of Service
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- User Quick Summary Card -->
+        <div class="nav-card" id="userQuickCard" style="display: none">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              margin-bottom: 0.75rem;
+            "
+          >
+            <div class="avatar" id="quickCardAvatar">VN</div>
+            <div style="min-width: 0; line-height: 1.2">
+              <div
+                id="quickCardName"
+                style="
+                  font-weight: 700;
+                  font-size: 0.875rem;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                "
+              >
+                Display Name
+              </div>
+              <div
+                id="quickCardHandle"
+                style="font-size: 0.75rem; color: var(--text-secondary)"
+              >
+                @username
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-around;
+              font-size: 0.75rem;
+              color: var(--text-secondary);
+              border-top: 1px solid var(--border);
+              padding-top: 0.5rem;
+            "
+          >
+            <div>
+              <strong
+                id="quickCardPostsCount"
+                style="color: var(--text-primary); font-weight: 700"
+                >0</strong
+              >
+              Posts
+            </div>
+            <div>
+              <strong
+                id="quickCardFollowersCount"
+                style="color: var(--text-primary); font-weight: 700"
+                >0</strong
+              >
+              Followers
+            </div>
+            <div>
+              <strong
+                id="quickCardFollowingCount"
+                style="color: var(--text-primary); font-weight: 700"
+                >0</strong
+              >
+              Following
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center Column (Feed / Profile Views) -->
+      <section class="feed-column">
+        <!-- VIEW 1: MAIN FEED -->
+        <div id="mainFeedView">
+          <!-- Post Composer Card -->
+          <div class="composer-card" id="composerSection">
+            <div class="composer-header">
+              <div class="avatar avatar-sm" id="composerAvatar">VN</div>
+              <span class="composer-prompt">Share what is happening...</span>
+            </div>
+            <form id="createPostForm">
+              <textarea
+                id="postTextInput"
+                class="composer-textarea"
+                placeholder="What are you working on or thinking about? Type your post here..."
+                maxlength="280"
+                rows="3"
+                required
+              ></textarea>
+              <div class="composer-footer">
+                <span class="char-counter" id="charCounter">0 / 280</span>
+                <button type="submit" class="btn-primary" id="publishPostBtn">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  Publish
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Feed Filter Tabs -->
+          <div class="feed-filter-bar" style="margin-top: 1.25rem">
+            <button class="filter-tab active" id="tabAllPosts" type="button">
+              All Posts
+            </button>
+            <button class="filter-tab" id="tabFollowingPosts" type="button">
+              Following
+            </button>
+          </div>
+
+          <!-- Posts Stream Container -->
+          <div class="feed-stream" id="feedStream" style="margin-top: 1rem">
+            <!-- Loading skeleton / posts rendered via JavaScript -->
+            <div class="empty-state" id="feedLoadingState">
+              <p>Loading real-time feed...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIEW 2: PROFILE PAGE VIEW -->
+        <div id="profilePageView" class="profile-view">
+          <div class="profile-header-card">
+            <div class="profile-banner-band"></div>
+            <div class="profile-body">
+              <div class="profile-avatar-row">
+                <div class="avatar avatar-lg" id="profilePageAvatar">VN</div>
+                <div id="profileActionContainer">
+                  <button
+                    class="btn-secondary"
+                    id="profileEditBtn"
+                    type="button"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 20h9"></path>
+                      <path
+                        d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                      ></path>
+                    </svg>
+                    Edit Profile
+                  </button>
+                  <button
+                    class="btn-primary"
+                    id="profileFollowBtn"
+                    type="button"
+                    style="display: none"
+                  >
+                    Follow
+                  </button>
+                </div>
+              </div>
+
+              <div class="profile-names">
+                <h1 class="profile-display-name" id="profilePageName">
+                  User Name
+                </h1>
+                <div class="profile-handle" id="profilePageHandle">
+                  @username
+                </div>
+              </div>
+
+              <p class="profile-bio" id="profilePageBio">No bio added yet.</p>
+
+              <div class="profile-meta-row">
+                <div class="profile-meta-item">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="3"
+                      y="4"
+                      width="18"
+                      height="18"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span id="profilePageJoined">Joined October 2026</span>
+                </div>
+              </div>
+
+              <div class="profile-stats-row">
+                <div class="stat-item">
+                  <strong id="profilePagePostsCount">0</strong> Posts
+                </div>
+                <div class="stat-item">
+                  <strong id="profilePageFollowersCount">0</strong> Followers
+                </div>
+                <div class="stat-item">
+                  <strong id="profilePageFollowingCount">0</strong> Following
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2
+            style="
+              font-size: 1rem;
+              font-weight: 700;
+              margin-bottom: 0.75rem;
+              color: var(--text-primary);
+            "
+          >
+            Posts
+          </h2>
+          <div class="feed-stream" id="profilePostsStream">
+            <!-- Profile-specific posts injected here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Sidebar: Suggested Members & About -->
+      <aside class="sidebar-widgets">
+        <div class="widget-card">
+          <h3 class="widget-title">Connect with Members</h3>
+          <div id="suggestedUsersList">
+            <!-- Member items injected dynamically -->
+          </div>
+        </div>
+
+        <div
+          class="widget-card"
+          style="
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+          "
+        >
+          <h3 class="widget-title" style="font-size: 0.875rem">
+            About VibeNet
+          </h3>
+          <p style="margin-bottom: 0.5rem">
+            VibeNet is an open, high-performance social networking platform
+            built with native web standards and Cloud Firestore database
+            synchronization.
+          </p>
+          <p>
+            Real-time updates, authentic interactions, zero algorithmic
+            manipulation.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Modals Section -->
+
+    <!-- 1. Authentication Modal -->
+    <div
+      class="modal-backdrop"
+      id="authModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="authModalTitle"
+    >
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2 class="modal-title" id="authModalTitle">Welcome to VibeNet</h2>
+          <button
+            class="btn-icon"
+            id="closeAuthModalBtn"
+            type="button"
+            aria-label="Close modal"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="auth-tabs">
+            <button class="auth-tab-btn active" id="tabSignIn" type="button">
+              Log In
+            </button>
+            <button class="auth-tab-btn" id="tabSignUp" type="button">
+              Sign Up
+            </button>
+          </div>
+
+          <div id="authErrorMessage" class="auth-error-box"></div>
+
+          <form id="authForm">
+            <div class="form-group" id="displayNameGroup" style="display: none">
+              <label class="form-label" for="authDisplayName"
+                >Display Name</label
+              >
+              <input
+                type="text"
+                id="authDisplayName"
+                placeholder="e.g. Alex Rivera"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="authEmail">Email Address</label>
+              <input
+                type="email"
+                id="authEmail"
+                placeholder="you@domain.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="authPassword">Password</label>
+              <input
+                type="password"
+                id="authPassword"
+                placeholder="Minimum 6 characters"
+                required
+                minlength="6"
+                autocomplete="current-password"
+              />
+              <div class="form-hint" id="passwordHint">
+                Must be at least 6 characters.
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn-primary"
+              id="authSubmitBtn"
+              style="width: 100%; margin-top: 0.5rem; padding: 0.625rem"
+            >
+              Log In
+            </button>
+          </form>
+
+          <div
+            style="
+              margin-top: 1rem;
+              padding-top: 1rem;
+              border-top: 1px solid var(--border);
+              text-align: center;
+            "
+          >
+            <button
+              type="button"
+              class="btn-secondary"
+              id="demoAccountBtn"
+              style="width: 100%; font-size: 0.8125rem"
+            >
+              Continue as Guest Demo User
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Edit Profile Modal -->
+    <div
+      class="modal-backdrop"
+      id="editProfileModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="editProfileTitle"
+    >
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2 class="modal-title" id="editProfileTitle">Edit Profile</h2>
+          <button
+            class="btn-icon"
+            id="closeEditProfileBtn"
+            type="button"
+            aria-label="Close modal"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <form id="editProfileForm">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="editDisplayName">Full Name</label>
+              <input type="text" id="editDisplayName" required maxlength="50" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="editBio">Bio</label>
+              <textarea
+                id="editBio"
+                rows="3"
+                maxlength="160"
+                placeholder="A short description about yourself..."
+              ></textarea>
+              <div class="form-hint">Maximum 160 characters.</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn-secondary"
+              id="cancelEditProfileBtn"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary" id="saveProfileBtn">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 3. Delete Post Confirmation Modal -->
+    <div
+      class="modal-backdrop"
+      id="deleteConfirmModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="deleteModalTitle"
+    >
+      <div class="modal-container" style="max-width: 380px">
+        <div class="modal-header">
+          <h2 class="modal-title" id="deleteModalTitle">Delete Post</h2>
+          <button
+            class="btn-icon"
+            id="closeDeleteModalBtn"
+            type="button"
+            aria-label="Close modal"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 0.875rem; color: var(--text-secondary)">
+            Are you sure you want to delete this post? This action cannot be
+            undone.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="cancelDeleteBtn">
+            Cancel
+          </button>
+          <button type="button" class="btn-danger" id="confirmDeleteBtn">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-container">
+        <div>
+          <span
+            >&copy; 2026 VibeNet. Connect. Share. Vibe. All rights
+            reserved.</span
+          >
+        </div>
+        <nav class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="#" id="footerStatusLink">System Status</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Scripts: Firebase SDK Modules and Application Logic -->
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

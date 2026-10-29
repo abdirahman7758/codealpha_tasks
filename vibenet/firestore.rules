@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // User Profiles
+    match /users/{userId} {
+      // Anyone can read profiles
+      allow read: if true;
+      // Only the authenticated user can create or update their own profile document
+      allow create, update: if request.auth != null && (request.auth.uid == userId || request.resource.data.uid == request.auth.uid);
+      // Deletions reserved for account owner
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Posts Collection
+    match /posts/{postId} {
+      // Feed is publicly readable
+      allow read: if true;
+      // Only authenticated users can publish posts, and authorId must match auth.uid
+      allow create: if request.auth != null && request.resource.data.authorId == request.auth.uid;
+      // Author can delete their own post
+      allow delete: if request.auth != null && resource.data.authorId == request.auth.uid;
+      // Authenticated users can update likes or comments arrays
+      allow update: if request.auth != null;
+    }
+  }
+}
+
