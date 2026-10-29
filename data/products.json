@@ -1,0 +1,158 @@
+[
+  {
+    "id": "vel-001",
+    "name": "Velarina No. 01 Structured Tote",
+    "category": "Leather Goods",
+    "price": 480,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "Full-grain Tuscan calfskin tote with reinforced handles and solid brass hardware.",
+    "description": "The No. 01 Structured Tote is crafted from 2.2 mm vegetable-tanned calfskin sourced from an artisanal tannery outside Florence. The interior features an unlined suede finish with a single zippered slip pocket. Edges are hand-bevelled and burnished with natural beeswax.",
+    "details": {
+      "dimensions": "38 cm H x 32 cm W x 14 cm D",
+      "handleDrop": "24 cm",
+      "materials": "100% full-grain vegetable-tanned calfskin, solid brass hardware",
+      "origin": "Handmade in Florence, Italy",
+      "care": "Treat twice annually with natural leather balm. Store in the supplied cotton dust cover away from direct sunlight."
+    },
+    "inStock": true,
+    "stockCount": 14,
+    "featured": true
+  },
+  {
+    "id": "vel-002",
+    "name": "Velarina Studio Weekender Duffel",
+    "category": "Leather Goods",
+    "price": 540,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "Heavy 22oz waxed cotton canvas bag with bridle leather straps and brass two-way zipper.",
+    "description": "Constructed from Scottish 22oz weatherproof waxed canvas and finished with 3.5 mm saddle-stitched bridle leather harness straps. Sized to meet international cabin baggage regulations for weekend transit.",
+    "details": {
+      "dimensions": "52 cm L x 28 cm W x 30 cm H",
+      "capacity": "42 Liters",
+      "materials": "Scottish waxed cotton canvas, English bridle leather, solid brass YKK Excella zippers",
+      "origin": "Manufactured in Porto, Portugal",
+      "care": "Spot clean with cold water and a soft brush. Do not machine wash or dry clean."
+    },
+    "inStock": true,
+    "stockCount": 9,
+    "featured": true
+  },
+  {
+    "id": "vel-003",
+    "name": "Velarina Atelier Double-Breasted Trench",
+    "category": "Outerwear",
+    "price": 680,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "Japanese compact cotton gabardine coat with horn buttons and storm flap.",
+    "description": "A tailored double-breasted coat woven from 100% long-staple Japanese cotton gabardine with water-repellent finishing. Designed with raglan sleeves, a structured belt with brass D-rings, and genuine buffalo horn buttons.",
+    "details": {
+      "sizing": "True to size. Regular tailored cut.",
+      "materials": "Shell: 100% Japanese cotton gabardine. Lining: 100% cupro. Buttons: genuine buffalo horn.",
+      "origin": "Tailored in Porto, Portugal",
+      "care": "Specialist dry clean only. Cool iron under pressing cloth."
+    },
+    "inStock": true,
+    "stockCount": 11,
+    "featured": true
+  },
+  {
+    "id": "vel-004",
+    "name": "Velarina Relaxed Wool Pleated Trouser",
+    "category": "Outerwear",
+    "price": 290,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "Virgin wool flannel trouser with twin forward pleats and extended tab closure.",
+    "description": "Cut with a mid-high rise and gentle taper, these trousers are woven in Biella, Italy from 310 gsm virgin wool flannel. Features deep front pleats, side adjusters, and unhemmed cuffs for bespoke alterations.",
+    "details": {
+      "sizing": "Available in sizes 46, 48, 50, 52, 54.",
+      "materials": "100% virgin wool flannel from Biella, Italy. Interior waistband: 100% cotton canvas.",
+      "origin": "Crafted in Northern Italy",
+      "care": "Dry clean only. Hang on cedar trouser bar between wears."
+    },
+    "inStock": true,
+    "stockCount": 18,
+    "featured": false
+  },
+  {
+    "id": "vel-005",
+    "name": "Velarina Minimalist Card Folio",
+    "category": "Accessories",
+    "price": 95,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "French box calf leather card sleeve with four slots and central folded currency pocket.",
+    "description": "Measuring only 4 mm in thickness, the Card Folio accommodates four payment cards and folded bank notes. The leather is drum-dyed French box calf with hand-creased perimeter borders and edge-paint applied in four coats.",
+    "details": {
+      "dimensions": "10 cm x 7 cm x 0.4 cm",
+      "materials": "French box calf leather, waxed polyester thread",
+      "origin": "Handcrafted in Florence, Italy",
+      "care": "Wipe with clean dry microfiber cloth. Avoid prolonged contact with water."
+    },
+    "inStock": true,
+    "stockCount": 32,
+    "featured": true
+  },
+  {
+    "id": "vel-006",
+    "name": "Velarina Heavy Cashmere Scarf",
+    "category": "Accessories",
+    "price": 220,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "Grade-A Mongolian cashmere scarf with fringed ends and dense twill weave.",
+    "description": "Woven on traditional looms from 100% pure Grade-A Mongolian cashmere fiber. Teaseled with natural dried teasels to achieve a subtle ripple surface that traps warmth without excess bulk.",
+    "details": {
+      "dimensions": "180 cm L x 45 cm W (excluding fringe)",
+      "materials": "100% Grade-A Mongolian cashmere (fiber diameter: 15.5 microns)",
+      "origin": "Woven in Scotland",
+      "care": "Hand wash gently in lukewarm water with mild wool detergent. Lay flat on towel to dry."
+    },
+    "inStock": true,
+    "stockCount": 20,
+    "featured": false
+  },
+  {
+    "id": "vel-007",
+    "name": "Velarina Sand-Cast Bronze Catchall",
+    "category": "Objects",
+    "price": 160,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "Solid sand-cast bronze dish with hand-brushed finish and cork base pad.",
+    "description": "Cast in a small foundry using traditional sand molds, each catchall displays subtle organic surface textures unique to the casting batch. The bronze is left unlacquered to develop a rich natural patina over years of use.",
+    "details": {
+      "dimensions": "16 cm diameter x 3 cm depth",
+      "weight": "1.1 kg",
+      "materials": "Solid sand-cast bronze, natural cork protective base",
+      "origin": "Cast in Kyoto, Japan",
+      "care": "Allow natural patina to develop, or polish with bronze cream to restore original golden luster."
+    },
+    "inStock": true,
+    "stockCount": 15,
+    "featured": true
+  },
+  {
+    "id": "vel-008",
+    "name": "Velarina Stoneware Oil Burner",
+    "category": "Objects",
+    "price": 115,
+    "currency": "USD",
+    "image": "https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&w=1000&q=80",
+    "shortDescription": "Wheel-thrown volcanic clay oil burner with brass water well.",
+    "description": "Hand-thrown using coarse iron-rich stoneware clay and fired in an oxidation kiln. Includes an independently spun brass dish for essential oils and water, designed to sit over a standard tealight candle.",
+    "details": {
+      "dimensions": "12 cm H x 11 cm diameter",
+      "materials": "Coarse volcanic stoneware clay, solid spun brass dish",
+      "origin": "Handmade in Seto, Japan",
+      "care": "Hand wash with mild detergent. Brass dish can be cleaned with lemon juice and salt."
+    },
+    "inStock": true,
+    "stockCount": 24,
+    "featured": false
+  }
+]
+

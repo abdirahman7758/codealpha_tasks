@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Bag | Velarina</title>
+  <meta name="description" content="Review your selected Velarina pieces before proceeding to order checkout.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <a href="/index.html" class="brand-logo">Velarina</a>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="main-nav-links">
+          <li><a href="/products.html" class="nav-link">All Products</a></li>
+          <li><a href="/products.html?category=Leather+Goods" class="nav-link">Leather Goods</a></li>
+          <li><a href="/products.html?category=Outerwear" class="nav-link">Outerwear</a></li>
+          <li><a href="/products.html?category=Accessories" class="nav-link">Accessories</a></li>
+          <li><a href="/products.html?category=Objects" class="nav-link">Objects</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/auth.html" class="icon-btn header-account-link" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <button type="button" class="icon-btn header-cart-btn" aria-label="Shopping Bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count-badge"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 50px 0 80px;">
+    <div class="container">
+      <div style="margin-bottom: 30px;">
+        <span style="font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-subtle);">
+          <a href="/index.html">Home</a> / Bag
+        </span>
+        <h1 style="font-family: var(--font-serif); font-size: 2.3rem; margin-top: 6px; font-weight: 500;">
+          Shopping Bag
+        </h1>
+      </div>
+
+      <div id="cart-page-content" class="checkout-layout">
+        <div style="background: #FFFFFF; border: 1px solid var(--border-light); padding: 32px;" id="cart-table-wrapper">
+          <div id="cart-page-items">
+            <!-- Populated by script -->
+          </div>
+        </div>
+
+        <div>
+          <div class="checkout-box">
+            <h2 class="checkout-heading">Summary</h2>
+            <div class="cart-summary-line">
+              <span>Subtotal</span>
+              <span id="page-subtotal">$0</span>
+            </div>
+            <div class="cart-summary-line">
+              <span>Estimated Courier Shipping</span>
+              <span id="page-shipping">$0</span>
+            </div>
+            <div class="cart-summary-line">
+              <span>Estimated Sales Tax</span>
+              <span id="page-tax">$0</span>
+            </div>
+            <div class="cart-summary-line total">
+              <span>Total</span>
+              <span id="page-total">$0</span>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 16px 0 20px;">
+              Complimentary courier shipping applies on orders of $500 or more.
+            </p>
+            <a href="/checkout.html" id="cart-proceed-btn" class="btn btn-primary btn-block">Proceed to Checkout</a>
+            <a href="/products.html" class="btn btn-outline-subtle btn-block" style="margin-top: 10px;">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="cart-empty-view" style="display: none; text-align: center; padding: 80px 20px; background: #FFFFFF; border: 1px solid var(--border-light); max-width: 600px; margin: 40px auto;">
+        <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 12px;">Your Bag is Empty</h2>
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 28px;">
+          You have not added any pieces to your bag yet.
+        </p>
+        <a href="/products.html" class="btn btn-primary">Browse The Collection</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">Velarina</div>
+          <p class="footer-brand-desc">
+            Independent atelier producing durable leather goods, tailored clothing, and functional cast objects.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Collection</h4>
+          <ul class="footer-links">
+            <li><a href="/products.html">All Items</a></li>
+            <li><a href="/products.html?category=Leather+Goods">Leather Goods</a></li>
+            <li><a href="/products.html?category=Outerwear">Outerwear</a></li>
+            <li><a href="/products.html?category=Accessories">Accessories</a></li>
+            <li><a href="/products.html?category=Objects">Objects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier</h4>
+          <ul class="footer-links">
+            <li><a href="/account.html">Customer Account</a></li>
+            <li><a href="/cart.html">Shopping Bag</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Inquiries</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Atelier workshops located in Florence and Porto.<br>
+            Client services: contact@velarina.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Velarina Atelier. All rights reserved.</div>
+        <div>Structured simplicity and authentic craftsmanship.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    function renderCartPage() {
+      const items = Cart.getItems();
+      const content = document.getElementById('cart-page-content');
+      const emptyView = document.getElementById('cart-empty-view');
+      const itemsList = document.getElementById('cart-page-items');
+
+      if (items.length === 0) {
+        content.style.display = 'none';
+        emptyView.style.display = 'block';
+        return;
+      }
+
+      content.style.display = 'grid';
+      emptyView.style.display = 'none';
+
+      itemsList.innerHTML = items.map(item => `
+        <div class="cart-item-row" style="grid-template-columns: 88px 1fr auto; padding: 20px 0;">
+          <div class="cart-item-image" style="width: 88px; height: 98px;">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div>
+            <div class="cart-item-title" style="font-size: 1.1rem;">
+              <a href="/product.html?id=${encodeURIComponent(item.id)}">${item.name}</a>
+            </div>
+            <div class="cart-item-price" style="margin: 6px 0 12px;">$${item.price.toLocaleString()} USD</div>
+            <div class="cart-item-actions">
+              <div class="cart-mini-qty">
+                <button type="button" onclick="Cart.updateQuantity('${item.id}', -1); renderCartPage();">-</button>
+                <span>${item.quantity}</span>
+                <button type="button" onclick="Cart.updateQuantity('${item.id}', 1); renderCartPage();">+</button>
+              </div>
+              <button type="button" class="remove-btn" onclick="Cart.removeItem('${item.id}'); renderCartPage();">Remove Item</button>
+            </div>
+          </div>
+          <div style="font-weight: 600; font-size: 1.1rem; text-align: right;">
+            $${(item.price * item.quantity).toLocaleString()}
+          </div>
+        </div>
+      `).join('');
+
+      const subtotal = Cart.getSubtotal();
+      const shipping = subtotal >= 500 ? 0 : 25;
+      const tax = Math.round(subtotal * 0.08);
+      const total = subtotal + shipping + tax;
+
+      document.getElementById('page-subtotal').textContent = `$${subtotal.toLocaleString()}`;
+      document.getElementById('page-shipping').textContent = shipping === 0 ? 'Complimentary' : `$${shipping}`;
+      document.getElementById('page-tax').textContent = `$${tax.toLocaleString()}`;
+      document.getElementById('page-total').textContent = `$${total.toLocaleString()}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCartPage();
+    });
+  </script>
+</body>
+</html>
+

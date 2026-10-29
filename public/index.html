@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velarina | Handcrafted Leather Goods and Tailored Garments</title>
+    <meta
+      name="description"
+      content="Velarina produces limited-run leather goods, tailored outerwear, and bronze objects for daily utility, handcrafted in Florence and Porto."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="header-left">
+          <button
+            type="button"
+            class="icon-btn mobile-menu-btn"
+            id="mobile-menu-toggle"
+            aria-label="Toggle navigation menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <a href="/index.html" class="brand-logo">Velarina</a>
+        </div>
+
+        <nav>
+          <ul class="nav-links" id="main-nav-links">
+            <li><a href="/products.html" class="nav-link">All Products</a></li>
+            <li>
+              <a href="/products.html?category=Leather+Goods" class="nav-link"
+                >Leather Goods</a
+              >
+            </li>
+            <li>
+              <a href="/products.html?category=Outerwear" class="nav-link"
+                >Outerwear</a
+              >
+            </li>
+            <li>
+              <a href="/products.html?category=Accessories" class="nav-link"
+                >Accessories</a
+              >
+            </li>
+            <li>
+              <a href="/products.html?category=Objects" class="nav-link"
+                >Objects</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a
+            href="/auth.html"
+            class="icon-btn header-account-link"
+            aria-label="Account"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+          <button
+            type="button"
+            class="icon-btn header-cart-btn"
+            aria-label="Shopping Bag"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+              ></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count-badge"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Editorial Hero Section -->
+      <section class="editorial-hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <p class="hero-eyebrow">Autumn / Winter Edition</p>
+              <h1 class="hero-title">
+                Structured Leather and Dense Japanese Gabardine
+              </h1>
+              <p class="hero-description">
+                Velarina designs functional objects, tailored coats, and
+                vegetable-tanned bags. Every piece is constructed in small
+                workshops in Florence and Porto using certified European
+                materials.
+              </p>
+              <div class="hero-actions">
+                <a href="/products.html" class="btn btn-primary"
+                  >View Collection</a
+                >
+                <a
+                  href="/products.html?category=Leather+Goods"
+                  class="btn btn-secondary"
+                  >Explore Leather</a
+                >
+              </div>
+            </div>
+            <div class="hero-image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80"
+                alt="Velarina leather goods workspace"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Atelier Values Bar -->
+      <section class="atelier-values">
+        <div class="container">
+          <div class="values-grid">
+            <div class="value-item">
+              <svg
+                class="value-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <div>
+                <h3 class="value-title">Certified European Sourcing</h3>
+                <p class="value-desc">
+                  Full-grain vegetable-tanned leathers from Tuscany and dense
+                  cotton twills from Setouchi.
+                </p>
+              </div>
+            </div>
+            <div class="value-item">
+              <svg
+                class="value-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <div>
+                <h3 class="value-title">Small Batch Manufacturing</h3>
+                <p class="value-desc">
+                  Production runs remain under one hundred units per style to
+                  maintain strict quality standards.
+                </p>
+              </div>
+            </div>
+            <div class="value-item">
+              <svg
+                class="value-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <div>
+                <h3 class="value-title">Insured International Dispatch</h3>
+                <p class="value-desc">
+                  Orders ship via tracked courier services with complimentary
+                  delivery on orders over $500.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Collection -->
+      <section style="padding: 70px 0">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Selected Pieces</h2>
+              <p class="section-subtitle">
+                Permanent collection staples and new seasonal introductions
+              </p>
+            </div>
+            <a href="/products.html" class="btn btn-outline-subtle btn-small"
+              >View All Products</a
+            >
+          </div>
+          <div class="products-grid" id="products-grid">
+            <!-- Loaded dynamically via catalog.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Atelier Craftsmanship Focus -->
+      <section
+        style="
+          background-color: #ffffff;
+          border-top: 1px solid var(--border-light);
+          border-bottom: 1px solid var(--border-light);
+          padding: 80px 0;
+        "
+      >
+        <div class="container">
+          <div class="hero-grid" style="grid-template-columns: 1fr 1fr">
+            <div class="hero-image-frame" style="height: 420px">
+              <img
+                src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1000&q=80"
+                alt="Artisan leather cutting desk"
+              />
+            </div>
+            <div class="hero-content">
+              <p class="hero-eyebrow">Material Integrity</p>
+              <h2
+                style="
+                  font-family: var(--font-serif);
+                  font-size: 2.2rem;
+                  line-height: 1.25;
+                  margin-bottom: 20px;
+                "
+              >
+                Vegetable-Tanned Tuscan Calfskin
+              </h2>
+              <p
+                style="
+                  font-size: 0.95rem;
+                  line-height: 1.7;
+                  color: var(--text-muted);
+                  margin-bottom: 20px;
+                "
+              >
+                Unlike chemically chrome-tanned leathers, our Tuscan calfskin is
+                treated using natural tannins derived from chestnut and mimosa
+                bark. Over time, the leather oxidizes and absorbs natural oils,
+                developing an amber patina distinct to each owner.
+              </p>
+              <p
+                style="
+                  font-size: 0.95rem;
+                  line-height: 1.7;
+                  color: var(--text-muted);
+                  margin-bottom: 28px;
+                "
+              >
+                All edges are bevelled by hand and sealed with raw organic
+                beeswax to preserve breathability and moisture resistance.
+              </p>
+              <a
+                href="/products.html?category=Leather+Goods"
+                class="btn btn-secondary"
+                >Discover Leather Goods</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Slide-out Cart Drawer -->
+    <div
+      class="cart-drawer-overlay"
+      id="cart-overlay"
+      onclick="Cart.closeDrawer()"
+    ></div>
+    <aside class="cart-drawer" id="cart-drawer">
+      <div class="drawer-header">
+        <h2 class="drawer-title">Shopping Bag</h2>
+        <button
+          type="button"
+          class="icon-btn"
+          onclick="Cart.closeDrawer()"
+          aria-label="Close Shopping Bag"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="drawer-body" id="drawer-items-list">
+        <!-- Items dynamically populated -->
+      </div>
+      <div class="drawer-footer" id="drawer-footer-content">
+        <div class="cart-summary-line total">
+          <span>Estimated Subtotal</span>
+          <span id="drawer-subtotal-display">$0</span>
+        </div>
+        <p
+          style="
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+          "
+        >
+          Taxes and courier shipping calculated during checkout.
+        </p>
+        <a href="/checkout.html" class="btn btn-primary btn-block"
+          >Proceed to Checkout</a
+        >
+        <a
+          href="/cart.html"
+          class="btn btn-outline-subtle btn-block"
+          style="margin-top: 8px"
+          >View Full Bag</a
+        >
+      </div>
+    </aside>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-title">Velarina</div>
+            <p class="footer-brand-desc">
+              Independent atelier producing durable leather goods, tailored
+              clothing, and functional cast objects.
+            </p>
+          </div>
+          <div>
+            <h4 class="footer-heading">Collection</h4>
+            <ul class="footer-links">
+              <li><a href="/products.html">All Items</a></li>
+              <li>
+                <a href="/products.html?category=Leather+Goods"
+                  >Leather Goods</a
+                >
+              </li>
+              <li><a href="/products.html?category=Outerwear">Outerwear</a></li>
+              <li>
+                <a href="/products.html?category=Accessories">Accessories</a>
+              </li>
+              <li><a href="/products.html?category=Objects">Objects</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-heading">Atelier</h4>
+            <ul class="footer-links">
+              <li><a href="/account.html">Customer Account</a></li>
+              <li><a href="/cart.html">Shopping Bag</a></li>
+              <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="/terms.html">Terms and Conditions</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-heading">Inquiries</h4>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                line-height: 1.6;
+                margin-bottom: 12px;
+              "
+            >
+              Atelier workshops located in Florence and Porto.<br />
+              Client services: contact@velarina.com
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>&copy; 2026 Velarina Atelier. All rights reserved.</div>
+          <div>Structured simplicity and authentic craftsmanship.</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/catalog.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        initCatalog(true); // Load featured products on homepage
+      });
+    </script>
+  </body>
+</html>

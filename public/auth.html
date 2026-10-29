@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Access | Velarina</title>
+  <meta name="description" content="Sign in or register for a Velarina client account to review past orders and save shipping preferences.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="/index.html" class="brand-logo">Velarina</a>
+      </div>
+      <div class="header-right">
+        <a href="/products.html" class="nav-link">Explore Collection</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="auth-container">
+        <!-- Auth Tabs -->
+        <div class="auth-tabs">
+          <div class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</div>
+          <div class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Create Account</div>
+        </div>
+
+        <div id="auth-alert" class="alert-message"></div>
+
+        <!-- Login Form -->
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email" class="form-label">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="name@example.com" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label for="login-password" class="form-label">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block">Sign In</button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" style="display: none;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reg-first-name" class="form-label">First Name</label>
+              <input type="text" id="reg-first-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="reg-last-name" class="form-label">Last Name</label>
+              <input type="text" id="reg-last-name" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reg-email" class="form-label">Email Address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="name@example.com" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label for="reg-password" class="form-label">Password (Minimum 8 characters)</label>
+            <input type="password" id="reg-password" class="form-control" minlength="8" required>
+          </div>
+          <button type="submit" id="reg-submit-btn" class="btn btn-primary btn-block">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 Velarina Atelier. All rights reserved.</div>
+        <div>Your personal information is handled according to strict European data privacy standards.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+  <script>
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById('login-form');
+      const regForm = document.getElementById('register-form');
+      const tabLogin = document.getElementById('tab-login');
+      const tabReg = document.getElementById('tab-register');
+      const alertEl = document.getElementById('auth-alert');
+
+      if (alertEl) alertEl.style.display = 'none';
+
+      if (tab === 'login') {
+        loginForm.style.display = 'block';
+        regForm.style.display = 'none';
+        tabLogin.classList.add('active');
+        tabReg.classList.remove('active');
+      } else {
+        loginForm.style.display = 'none';
+        regForm.style.display = 'block';
+        tabLogin.classList.remove('active');
+        tabReg.classList.add('active');
+      }
+    }
+
+    function showAlert(msg, isError = true) {
+      const alertEl = document.getElementById('auth-alert');
+      if (!alertEl) return;
+      alertEl.textContent = msg;
+      alertEl.className = 'alert-message ' + (isError ? 'alert-error' : 'alert-success');
+      alertEl.style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // If already logged in, redirect to account dashboard
+      if (Auth.isLoggedIn()) {
+        window.location.href = '/account.html';
+        return;
+      }
+
+      // Check URL parameters for register trigger
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('mode') === 'register') {
+        switchAuthTab('register');
+      }
+
+      // Handle Login
+      const loginForm = document.getElementById('login-form');
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
+        const btn = document.getElementById('login-submit-btn');
+
+        btn.disabled = true;
+        btn.textContent = 'Verifying...';
+
+        try {
+          const res = await API.login({ email, password });
+          Auth.setSession(res.user, res.token);
+          showAlert('Authentication successful. Redirecting...', false);
+          setTimeout(() => {
+            window.location.href = '/account.html';
+          }, 800);
+        } catch (err) {
+          showAlert(err.message || 'Authentication failed. Please check your credentials.', true);
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
+        }
+      });
+
+      // Handle Registration
+      const regForm = document.getElementById('register-form');
+      regForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const firstName = document.getElementById('reg-first-name').value.trim();
+        const lastName = document.getElementById('reg-last-name').value.trim();
+        const email = document.getElementById('reg-email').value.trim();
+        const password = document.getElementById('reg-password').value;
+        const btn = document.getElementById('reg-submit-btn');
+
+        btn.disabled = true;
+        btn.textContent = 'Creating Account...';
+
+        try {
+          const res = await API.register({ firstName, lastName, email, password });
+          Auth.setSession(res.user, res.token);
+          showAlert('Account created successfully. Welcome to Velarina.', false);
+          setTimeout(() => {
+            window.location.href = '/account.html';
+          }, 800);
+        } catch (err) {
+          showAlert(err.message || 'Registration could not be completed.', true);
+          btn.disabled = false;
+          btn.textContent = 'Create Account';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Checkout | Velarina</title>
+  <meta name="description" content="Complete your order with secure courier shipping and verified payment processing.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="/index.html" class="brand-logo">Velarina</a>
+      </div>
+      <div style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-subtle);">
+        Secure Order Checkout
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      <form id="checkout-form" class="checkout-layout">
+        <!-- Left: Order Form -->
+        <div>
+          <div id="checkout-error" class="alert-message alert-error"></div>
+
+          <!-- Section 1: Customer Contact -->
+          <div class="checkout-box">
+            <h2 class="checkout-heading">1. Customer Information</h2>
+            <div class="form-grid">
+              <div class="form-group form-full">
+                <label for="checkout-email" class="form-label">Email Address</label>
+                <input type="email" id="checkout-email" class="form-control" placeholder="name@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-first-name" class="form-label">First Name</label>
+                <input type="text" id="checkout-first-name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-last-name" class="form-label">Last Name</label>
+                <input type="text" id="checkout-last-name" class="form-control" required>
+              </div>
+              <div class="form-group form-full">
+                <label for="checkout-phone" class="form-label">Telephone Number</label>
+                <input type="tel" id="checkout-phone" class="form-control" placeholder="+1 (555) 000-0000" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Delivery Address -->
+          <div class="checkout-box">
+            <h2 class="checkout-heading">2. Shipping Address</h2>
+            <div class="form-grid">
+              <div class="form-group form-full">
+                <label for="checkout-address1" class="form-label">Street Address</label>
+                <input type="text" id="checkout-address1" class="form-control" placeholder="House number and street name" required>
+              </div>
+              <div class="form-group form-full">
+                <label for="checkout-address2" class="form-label">Apartment, Suite, Unit (Optional)</label>
+                <input type="text" id="checkout-address2" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="checkout-city" class="form-label">City</label>
+                <input type="text" id="checkout-city" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-state" class="form-label">State / Province / Region</label>
+                <input type="text" id="checkout-state" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-postal" class="form-label">Postal / ZIP Code</label>
+                <input type="text" id="checkout-postal" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-country" class="form-label">Country</label>
+                <select id="checkout-country" class="form-control" required>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Germany">Germany</option>
+                  <option value="France">France</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Australia">Australia</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Payment Method -->
+          <div class="checkout-box">
+            <h2 class="checkout-heading">3. Payment Information</h2>
+            <label class="form-radio-card active">
+              <div style="display: flex; align-items: center;">
+                <input type="radio" name="payment_method" value="Credit / Debit Card" checked>
+                <span style="font-weight: 500; font-size: 0.9rem;">Credit or Debit Card</span>
+              </div>
+              <span style="font-size: 0.78rem; color: var(--text-subtle);">Visa, Mastercard, Amex</span>
+            </label>
+
+            <div style="margin-top: 16px; padding: 16px; background-color: var(--bg-subtle); border: 1px solid var(--border-light);">
+              <div class="form-group">
+                <label class="form-label">Card Number</label>
+                <input type="text" class="form-control" placeholder="4000 1234 5678 9010" maxlength="19" value="4000 1234 5678 9010">
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Expiration Date</label>
+                  <input type="text" class="form-control" placeholder="MM/YY" maxlength="5" value="12/28">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Security Code (CVV)</label>
+                  <input type="text" class="form-control" placeholder="123" maxlength="4" value="842">
+                </div>
+              </div>
+            </div>
+
+            <label class="form-radio-card" style="margin-top: 14px;">
+              <div style="display: flex; align-items: center;">
+                <input type="radio" name="payment_method" value="Direct Bank Wire">
+                <span style="font-weight: 500; font-size: 0.9rem;">Direct Bank Wire (SEPA / Swift)</span>
+              </div>
+              <span style="font-size: 0.78rem; color: var(--text-subtle);">Invoice sent via email</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Right: Order Review Sidebar -->
+        <div>
+          <div class="checkout-box" style="position: sticky; top: 30px;">
+            <h2 class="checkout-heading">Order Review</h2>
+            <div id="checkout-items-list" class="order-review-table">
+              <!-- Injected by checkout.js -->
+            </div>
+
+            <div class="cart-summary-line">
+              <span>Subtotal</span>
+              <span id="checkout-subtotal">$0</span>
+            </div>
+            <div class="cart-summary-line">
+              <span>Insured Courier Shipping</span>
+              <span id="checkout-shipping">$0</span>
+            </div>
+            <div class="cart-summary-line">
+              <span>Sales Tax (Estimated)</span>
+              <span id="checkout-tax">$0</span>
+            </div>
+            <div class="cart-summary-line total">
+              <span>Total Amount</span>
+              <span id="checkout-total">$0</span>
+            </div>
+
+            <button type="submit" id="place-order-btn" class="btn btn-primary btn-block" style="margin-top: 24px;">
+              Place Order
+            </button>
+
+            <div style="margin-top: 18px; font-size: 0.76rem; color: var(--text-subtle); line-height: 1.5; text-align: center;">
+              By completing this order, you accept the Velarina <a href="/terms.html" target="_blank" style="text-decoration: underline;">Terms and Conditions</a> and <a href="/privacy-policy.html" target="_blank" style="text-decoration: underline;">Privacy Policy</a>.
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 Velarina Atelier. All rights reserved.</div>
+        <div>Compliant with European consumer contracts and data privacy directives.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/checkout.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initCheckout();
+    });
+  </script>
+</body>
+</html>
+

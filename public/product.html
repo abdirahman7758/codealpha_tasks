@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Velarina</title>
+  <meta name="description" content="Examine materials, dimensions, and craft details for Velarina atelier pieces.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <a href="/index.html" class="brand-logo">Velarina</a>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="main-nav-links">
+          <li><a href="/products.html" class="nav-link">All Products</a></li>
+          <li><a href="/products.html?category=Leather+Goods" class="nav-link">Leather Goods</a></li>
+          <li><a href="/products.html?category=Outerwear" class="nav-link">Outerwear</a></li>
+          <li><a href="/products.html?category=Accessories" class="nav-link">Accessories</a></li>
+          <li><a href="/products.html?category=Objects" class="nav-link">Objects</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/auth.html" class="icon-btn header-account-link" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <button type="button" class="icon-btn header-cart-btn" aria-label="Shopping Bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count-badge"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" id="product-detail-container">
+      <!-- Injected by product-detail.js -->
+    </div>
+  </main>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-overlay" onclick="Cart.closeDrawer()"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Shopping Bag</h2>
+      <button type="button" class="icon-btn" onclick="Cart.closeDrawer()" aria-label="Close Shopping Bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="drawer-items-list"></div>
+    <div class="drawer-footer" id="drawer-footer-content">
+      <div class="cart-summary-line total">
+        <span>Estimated Subtotal</span>
+        <span id="drawer-subtotal-display">$0</span>
+      </div>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 16px;">Taxes and courier shipping calculated during checkout.</p>
+      <a href="/checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+      <a href="/cart.html" class="btn btn-outline-subtle btn-block" style="margin-top: 8px;">View Full Bag</a>
+    </div>
+  </aside>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">Velarina</div>
+          <p class="footer-brand-desc">
+            Independent atelier producing durable leather goods, tailored clothing, and functional cast objects.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Collection</h4>
+          <ul class="footer-links">
+            <li><a href="/products.html">All Items</a></li>
+            <li><a href="/products.html?category=Leather+Goods">Leather Goods</a></li>
+            <li><a href="/products.html?category=Outerwear">Outerwear</a></li>
+            <li><a href="/products.html?category=Accessories">Accessories</a></li>
+            <li><a href="/products.html?category=Objects">Objects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier</h4>
+          <ul class="footer-links">
+            <li><a href="/account.html">Customer Account</a></li>
+            <li><a href="/cart.html">Shopping Bag</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Inquiries</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            Atelier workshops located in Florence and Porto.<br>
+            Client services: contact@velarina.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Velarina Atelier. All rights reserved.</div>
+        <div>Structured simplicity and authentic craftsmanship.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/product-detail.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initProductDetail();
+    });
+  </script>
+</body>
+</html>
+

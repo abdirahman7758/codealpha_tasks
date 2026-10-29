@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation | Velarina</title>
+  <meta name="description" content="Velarina official order confirmation and receipt.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="/index.html" class="brand-logo">Velarina</a>
+      </div>
+      <div class="header-right">
+        <a href="/products.html" class="btn btn-outline-subtle btn-small">Return to Collection</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      <div class="receipt-box" id="receipt-container">
+        <div style="text-align: center; padding: 40px 0; color: var(--text-muted);">
+          Loading order details...
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 Velarina Atelier. All rights reserved.</div>
+        <div>Inquiries regarding your shipment may be addressed to contact@velarina.com.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+  <script>
+    async function loadConfirmation() {
+      const params = new URLSearchParams(window.location.search);
+      const orderId = params.get('id');
+      const container = document.getElementById('receipt-container');
+
+      if (!orderId) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 40px 0;">
+            <h2 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 12px;">Order Not Found</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">No order identifier was specified.</p>
+            <a href="/products.html" class="btn btn-primary">Browse Collection</a>
+          </div>
+        `;
+        return;
+      }
+
+      try {
+        const res = await API.getOrder(orderId);
+        const order = res.order;
+
+        const dateStr = new Date(order.createdAt).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        const itemsRows = order.items.map(item => `
+          <div style="display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-light);">
+            <div style="width: 56px; height: 60px; background: var(--bg-subtle); border: 1px solid var(--border-light); overflow: hidden;">
+              <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <div style="font-weight: 500; font-size: 0.92rem;">${item.name}</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Quantity: ${item.quantity} &times; $${item.price.toLocaleString()}</div>
+            </div>
+            <div style="font-weight: 600; font-size: 0.95rem;">
+              $${(item.price * item.quantity).toLocaleString()}
+            </div>
+          </div>
+        `).join('');
+
+        container.innerHTML = `
+          <div class="receipt-header">
+            <span style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-bronze); font-weight: 600;">
+              Order Confirmed
+            </span>
+            <h1 class="receipt-number">Reference: ${order.orderNumber}</h1>
+            <p style="font-size: 0.86rem; color: var(--text-muted);">${dateStr}</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; font-size: 0.88rem;">
+            <div>
+              <h4 style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-subtle); margin-bottom: 8px;">Customer</h4>
+              <p style="font-weight: 500;">${order.customer.firstName} ${order.customer.lastName}</p>
+              <p style="color: var(--text-muted);">${order.customer.email}</p>
+              <p style="color: var(--text-muted);">${order.customer.phone || ''}</p>
+            </div>
+            <div>
+              <h4 style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-subtle); margin-bottom: 8px;">Shipping Destination</h4>
+              <p style="color: var(--text-muted);">${order.shippingAddress.addressLine1}</p>
+              ${order.shippingAddress.addressLine2 ? `<p style="color: var(--text-muted);">${order.shippingAddress.addressLine2}</p>` : ''}
+              <p style="color: var(--text-muted);">${order.shippingAddress.city}, ${order.shippingAddress.state} ${order.shippingAddress.postalCode}</p>
+              <p style="color: var(--text-muted); font-weight: 500;">${order.shippingAddress.country}</p>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 28px;">
+            <h4 style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-subtle); margin-bottom: 12px;">Purchased Items</h4>
+            ${itemsRows}
+          </div>
+
+          <div style="background-color: var(--bg-subtle); padding: 20px; border: 1px solid var(--border-light); margin-bottom: 30px;">
+            <div class="cart-summary-line">
+              <span>Subtotal</span>
+              <span>$${order.pricing.subtotal.toLocaleString()}</span>
+            </div>
+            <div class="cart-summary-line">
+              <span>Shipping (${order.shippingMethod})</span>
+              <span>${order.pricing.shipping === 0 ? 'Complimentary' : `$${order.pricing.shipping}`}</span>
+            </div>
+            <div class="cart-summary-line">
+              <span>Tax</span>
+              <span>$${order.pricing.tax.toLocaleString()}</span>
+            </div>
+            <div class="cart-summary-line total">
+              <span>Total Paid</span>
+              <span>$${order.pricing.total.toLocaleString()} USD</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; justify-content: center;">
+            <button type="button" class="btn btn-secondary" onclick="window.print()">Print Receipt</button>
+            <a href="/products.html" class="btn btn-primary">Continue Browsing</a>
+          </div>
+        `;
+      } catch (err) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 40px 0;">
+            <h2 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 12px;">Unable to Retrieve Order</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Please verify your order reference number or contact support.</p>
+            <a href="/products.html" class="btn btn-primary">Return to Collection</a>
+          </div>
+        `;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadConfirmation);
+  </script>
+</body>
+</html>
+
